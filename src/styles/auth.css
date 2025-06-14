@@ -1,0 +1,110 @@
+.container {
+  width: 100%;
+  max-width: 22rem; /* Set a max-width for larger screens */
+  margin: 0 auto;
+  padding: 1.5rem 2rem; /* Add horizontal padding for mobile */
+}
+
+.form-header {
+    padding: 0 0.5rem;
+  h1 {
+    padding: 0;
+    margin: 0;
+    color: var(--text-color, #333);
+  }
+
+  p {
+    margin: 0rem 0 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color-secondary, #666);
+  }
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .6rem;
+}
+
+label {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color, #333);
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    font-size: .8rem;
+    font-weight: 550;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background: var(--primary-color);
+    color: var(--text-color, #2e2e2e);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--accent-color, #646cff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: red;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -.5rem;
+    font-weight: 500;
+}
+
+button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.4em 1em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+button:hover {
+  background-color: #3b42c4cc;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (max-width: 480px) {
+  .form-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .form-header p {
+    font-size: 0.8rem;
+  }
+
+  input {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

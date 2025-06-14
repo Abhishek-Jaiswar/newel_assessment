@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import AuthPage from '../pages/AuthPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import AddEditPage from '../pages/AddEditPage';
 import App from '../App';
 import ListPage from '../pages/ListPage';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 
 // This is the place where we define the routes for our application, this approach
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
         path: '/',
         element: <App />,
         children: [
-            { index: true, element: <AuthPage /> },
+            { index: true, element: <Login /> },
+            { path: 'register', element: <Register /> },
             { path: 'list', element: <ListPage /> },
             { path: 'edit/:id', element: <AddEditPage /> },
             { path: "add", element: <AddEditPage /> },
