@@ -67,6 +67,7 @@ input:focus {
 button {
     width: 100%;
     display: flex;
+    margin-top: 2rem;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
