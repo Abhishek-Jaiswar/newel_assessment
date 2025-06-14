@@ -1,4 +1,5 @@
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
+import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 export const Register = async (req, res) => {
@@ -25,7 +26,7 @@ export const Register = async (req, res) => {
 
         // We are using bcrypt to secure the password of user, this lib help us to encrypt the data with minimal effort 
 
-        const hashedPassword = bcrypt.hash(password, 10)
+        const hashedPassword = await bcrypt.hash(password, 10)
 
         const newUser = await User.create({
             username,
