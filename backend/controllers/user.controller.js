@@ -28,7 +28,7 @@ export const Register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
-        const newUser = await User.create({
+        await User.create({
             username,
             email,
             contact,
@@ -87,9 +87,10 @@ export const Login = async (req, res) => {
         // Set token in cookies
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-        });
+            secure: true, // Required for SameSite=None
+            sameSite: 'None', // Required for cross-origin
+            maxAge: 1000 * 60 * 60 * 24
+        })
 
         return res.status(200).json({
             message: "Login successful",
