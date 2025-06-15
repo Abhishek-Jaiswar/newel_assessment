@@ -13,7 +13,7 @@ import Register from '../pages/Register';
 
 // The routes are defined using the createBrowserRouter function from react-router-dom.
 // createBrowserRouter is the new way to define routes in React Router v6.4 and above.
-const router = createBrowserRouter([
+const AppRouter = createBrowserRouter([
     {
         path: '/',
         element: <App />,
@@ -28,4 +28,4 @@ const router = createBrowserRouter([
     }
 ])
 
-export default router;
+export default AppRouter;
