@@ -105,6 +105,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.valid-ss {
+  padding-top: 1rem;
+}
+
 @media (max-width: 480px) {
   .form-header h1 {
     font-size: 1.1rem;

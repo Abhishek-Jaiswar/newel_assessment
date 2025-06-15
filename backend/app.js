@@ -13,7 +13,7 @@ const app = express();
 
 // Middlewares
 const corsOptions = {
-    origin: "https://newel-assessment.vercel.app/",
+    origin: "https://newel-assessment.vercel.app",
     // This will make sure the requests are Allowed from my client only.
     credentials: true, // Allow cookies and credentials from client
 };

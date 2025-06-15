@@ -145,7 +145,7 @@ const Register = () => {
           </button>
 
           {globalError && <p className='error'>{globalError}</p>}
-          <p className='text-center'>Already have an account? <Link to={'/'}>Login</Link></p>
+          <p className='valid-ss'>Already have an account? <Link to={'/'}>Login</Link></p>
         </form>
       </div>
     </div>
