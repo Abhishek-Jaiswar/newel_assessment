@@ -29,7 +29,7 @@ app.use(cookieParser()); // This middleware will parse the cookies from the requ
 // Registering user routes
 // This will handle all the user related routes like login, signup, etc.
 app.use('/api/users', userRoutes);
-app.use('/api/employees', employeeRoute); // Lazy loading employee routes
+app.use('/api/employees', employeeRoute);
 
 // Health check route
 app.get('/', (req, res) => {

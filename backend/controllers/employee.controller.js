@@ -3,14 +3,18 @@ import Employee from "../models/employee.model.js";
 export const getAllEmployees = async (req, res) => {
     try {
         const { userId } = req.user;
+        console.log(userId);
+        
         if (!userId) {
             return res.status(400).json({
                 message: "User ID is required",
             });
         }
-        console.log(userId);
 
         const employees = await Employee.find({ userId }).sort({ dateOfJoining: -1 });
+
+        console.log(employees);
+        
         res.status(200).json({
             message: "Employees fetched successfully",
             employees,
@@ -82,42 +86,28 @@ export const createEmployee = async (req, res) => {
 }
 
 export const deleteEmployee = async (req, res) => {
-    try {
-        const { userId } = req.user;
-        if (!userId) {
-            return res.status(400).json({
-                message: "User ID is required",
-            });
-        }
+  try {
+    const { id } = req.params; // Employee ID from URL
+    const { userId } = req.user; // Authenticated user's ID
 
-        const { employeeId } = req.params;
-        if (!employeeId) {
-            return res.status(400).json({
-                message: "Employee ID is required",
-            });
-        }
-
-        // Find the employee by ID and userId
-        const employee = await Employee.findOneAndDelete({ _id: employeeId, userId });
-        if (!employee) {
-            return res.status(404).json({
-                message: "Employee not found",
-            });
-        }
-
-        // Respond with a success message
-        res.status(200).json({
-            message: "Employee deleted successfully",
-            employee,
-        });
-    } catch (error) {
-        console.error("Error deleting employee:", error);
-        res.status(500).json({
-            message: "Internal server error",
-            error: error.message,
-        });
+    if (!id) {
+      return res.status(400).json({ message: "Employee ID is required" });
     }
-}
+
+    const employee = await Employee.findOne({ _id: id, userId });
+
+    if (!employee) {
+      return res.status(404).json({ message: "Employee not found or unauthorized" });
+    }
+
+    await Employee.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "Employee deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting employee:", error);
+    res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+};
 
 export const updateEmployee = async (req, res) => {
     try {
@@ -214,48 +204,3 @@ export const getEmployeeById = async (req, res) => {
         });
     }
 }
-
-// export const searchEmployees = async (req, res) => {
-//     try {
-//         const { userId } = req.user;
-//         if (!userId) {
-//             return res.status(400).json({
-//                 message: "User ID is required",
-//             });
-//         }
-//         const { query } = req.query;
-//         if (!query) {
-//             return res.status(400).json({
-//                 message: "Search query is required",
-//             });
-//         }
-//         // Use a regex to search for employees by name or department
-//         const regex = new RegExp(query, 'i'); // 'i' for case-insensitive search
-//         const employees = await Employee.find({
-//             userId,
-//             $or: [
-//                 { employeeName: regex },
-//                 { department: regex },
-//             ],
-//         }).sort({ dateOfJoining: -1 });
-
-//         if (employees.length === 0) {
-
-
-//             return res.status(404).json({
-//                 message: "No employees found",
-//             });
-//         }
-//         // Respond with the found employees
-//         res.status(200).json({
-//             message: "Employees found",
-//             employees,
-//         });
-//     } catch (error) {
-//         console.error("Error searching employees:", error);
-//         res.status(500).json({
-//             message: "Internal server error",
-//             error: error.message,
-//         });
-//     }
-// }

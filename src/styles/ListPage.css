@@ -1,0 +1,138 @@
+
+.list-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  margin: -20px -20px 20px -20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add button container */
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Add New button */
+.add-btn {
+  padding: 0.4rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background: rgb(77, 96, 244);
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.toolbar label {
+  font-weight: bold;
+}
+
+.toolbar input {
+  padding: 8px 14px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 300px;
+}
+
+/* Optional search icon */
+.toolbar::after {
+  content: "🔍";
+  font-size: 18px;
+  color: #007bff;
+}
+
+/* Table title */
+.table-title {
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 0.7rem;
+  border: 1px solid #76717163;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Header style */
+th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Row hover effect */
+tbody tr:hover {
+  background-color: #f4f4f4;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Action buttons */
+
+.actions .act-btn {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  background-color: #e7f0ff;
+  color: #1e90ff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.actions button:hover {
+  background-color: #d4e4ff;
+  color: #0d6efd;
+}
+
+/* No data row */
+.no-data {
+  text-align: center;
+  padding: 15px 0;
+  color: #888;
+  font-style: italic;
+}

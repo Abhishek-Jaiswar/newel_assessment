@@ -1,8 +1,4 @@
 :root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -30,14 +26,15 @@
 
 
 body {
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+
+.app-container {
+  min-height: 100vh;
 }
 
 @media (prefers-color-scheme: light) {

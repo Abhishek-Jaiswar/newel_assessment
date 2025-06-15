@@ -1,8 +1,17 @@
 .container {
-  width: 100%;
-  max-width: 22rem; /* Set a max-width for larger screens */
+  min-height: 100%;
+  max-width: 25rem; /* Set a max-width for larger screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 1.5rem 2rem; /* Add horizontal padding for mobile */
+}
+
+.auth-form {
+  padding: 2rem;
+  background: rgba(244, 242, 242, 0.841);
+  border-radius: .5rem;
 }
 
 .form-header {
