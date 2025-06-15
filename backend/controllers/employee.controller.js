@@ -170,37 +170,32 @@ export const updateEmployee = async (req, res) => {
 
 export const getEmployeeById = async (req, res) => {
     try {
-        const { userId } = req.user;
-        if (!userId) {
-            return res.status(400).json({
-                message: "User ID is required",
-            });
-        }
+        const { userId } = req.user || {};
         const { employeeId } = req.params;
-        if (!employeeId) {
-            return res.status(400).json({
-                message: "Employee ID is required",
-            });
-        }
-        // Find the employee by ID and userId
-        const employee = await Employee.findOne({ _id: employeeId, userId });
-        if (!employee) {
-            return res.status(404).json({
-                message: "Employee not found",
-            });
+
+        console.log("userId:", userId);
+        console.log("employeeId:", employeeId);
+
+        if (!userId) {
+            return res.status(401).json({ message: "Unauthorized: No userId found" });
         }
 
-        // Respond with the employee details
+        if (!employeeId) {
+            return res.status(400).json({ message: "Employee ID is required" });
+        }
+
+        const employee = await Employee.findOne({ _id: employeeId, userId });
+
+        if (!employee) {
+            return res.status(404).json({ message: "Employee not found" });
+        }
+
         res.status(200).json({
             message: "Employee fetched successfully",
             employee,
         });
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error fetching employee:", error);
-        res.status(500).json({
-            message: "Internal server error",
-            error: error.message,
-        });
+        res.status(500).json({ message: "Internal server error", error: error.message });
     }
-}
+};

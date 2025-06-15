@@ -76,7 +76,8 @@
   border-radius: 8px;
   font-size: .9rem;
   transition: all 0.3s ease;
-  background-color: #f8fafc;
+background: none;
+  color: var(--text-color);
 
 }
 
@@ -86,8 +87,9 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent-color);
-  background-color: white;
+  background: none;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  color: var(--text-color);
 }
 
 .form-group select {
@@ -97,12 +99,14 @@
   background-repeat: no-repeat;
   background-size: 16px;
   padding-right: 40px;
+  color: var(--text-color);
 }
 
 .form-group textarea {
   resize: vertical;
   min-height: 100px;
   font-family: inherit;
+  color: var(--text-color);
 }
 
 .radio-group,
@@ -120,7 +124,7 @@
   gap: 8px;
   cursor: pointer;
   font-size: 14px;
-  color: #374151;
+  color: var(--text-color);
   font-weight: 500;
   padding: 8px 12px;
   border-radius: 6px;
