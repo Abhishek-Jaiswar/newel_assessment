@@ -64,7 +64,7 @@ const Register = () => {
   };
 
   return (
-    <div className='container'>
+    <div className='form-container'>
       <div className='auth-form'>
         <div className='form-header'>
           <h1>Create your account</h1>

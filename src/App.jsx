@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div className='app-container'>
+    <div className=''>
       <Outlet /> {/* This will render the child routes */}
     </div>
   )

@@ -25,13 +25,13 @@
 }
 
 
-body {
+/* body {
   min-width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .app-container {
   min-height: 100vh;

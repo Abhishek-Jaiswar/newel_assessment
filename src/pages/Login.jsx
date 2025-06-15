@@ -63,7 +63,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="form-container">
       <div className="auth-form">
         <div className="form-header">
           <h1>Welcome Back!</h1>

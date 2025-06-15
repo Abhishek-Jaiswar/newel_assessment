@@ -1,11 +1,16 @@
-.container {
-  min-height: 100%;
-  max-width: 25rem; /* Set a max-width for larger screens */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-container {
+  min-width: 25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  padding: 1.5rem 2rem; /* Add horizontal padding for mobile */
+
 }
 
 .auth-form {
@@ -88,6 +93,7 @@ button {
     background-color: var(--accent-color);
     cursor: pointer;
     transition: 0.25s ease-in-out;
+    margin-bottom: 1rem;
 }
 
 button:hover {

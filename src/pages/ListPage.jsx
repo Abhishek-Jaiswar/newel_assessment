@@ -80,7 +80,11 @@ const ListPage = () => {
               <tr key={item._id}>
                 <td>{item.employeeName}</td>
                 <td>{item.department}</td>
-                <td>{item.dateOfJoining}</td>
+                <td>{new Date(item.dateOfJoining).toLocaleDateString('en-IN', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}</td>
                 <td className="actions">
                   <Link to={`/view/${item._id}`} title="View">
                     <p className='act-btn'>View</p>
@@ -88,7 +92,7 @@ const ListPage = () => {
                   <Link to={`/edit/${item._id}`} title="Edit">
                     <p className='act-btn'>Edit</p>
                   </Link>
-                  <button className='act-btn' onClick={() => handleDelete(item._id)}>Delete</button>
+                  <div className='act-btn' onClick={() => handleDelete(item._id)}>Delete</div>
                 </td>
               </tr>
             ))}

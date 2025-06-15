@@ -28,7 +28,7 @@ const AddEditPage = () => {
     }
   }, [id]);
 
-  // ✅ Handle form submission (add or edit)
+  // Handle form submission (add or edit)
   const handleSubmit = async (formData) => {
     setLoading(true);
     try {
