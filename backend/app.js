@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/auth.route.js';
+import employeeRoute from './routes/employee.route.js';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file
@@ -25,10 +26,10 @@ app.use(cookieParser()); // This middleware will parse the cookies from the requ
 
 // Routes
 
-
 // Registering user routes
 // This will handle all the user related routes like login, signup, etc.
 app.use('/api/users', userRoutes);
+app.use('/api/employees', employeeRoute); // Lazy loading employee routes
 
 // Health check route
 app.get('/', (req, res) => {
@@ -36,6 +37,5 @@ app.get('/', (req, res) => {
         message: "I'm okay!"
     })
 })
-
 
 export default app;

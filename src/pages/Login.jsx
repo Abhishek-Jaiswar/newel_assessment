@@ -45,9 +45,6 @@ const Login = () => {
         payload.contact = identifier;
       }
 
-      console.log(payload);
-      
-
       const response = await axios.post('/users/login', payload, {
         withCredentials: true,
       });

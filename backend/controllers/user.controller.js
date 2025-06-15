@@ -79,7 +79,7 @@ export const Login = async (req, res) => {
         }
         // Generate JWT token
         const token = jwt.sign(
-            { id: user._id },
+            { userId: user._id },
             process.env.JWT_SECRET,
             { expiresIn: '7d' } // Token validity
         );
@@ -111,14 +111,14 @@ export const Login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-  res.clearCookie('token', {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-  });
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+    });
 
-  return res.status(200).json({
-    message: 'Logout successful',
-    status: true,
-  });
+    return res.status(200).json({
+        message: 'Logout successful',
+        status: true,
+    });
 };
